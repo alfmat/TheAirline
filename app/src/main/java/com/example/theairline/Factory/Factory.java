@@ -20,10 +20,10 @@ public class Factory {
     }
 
     public enum plane_types {
-        BOEING40, AIRBUS100, BOEING80, BOEING20, AIRBUS140;
+        BOEING40, AIRBUS100, BOEING80, BOEING20, AIRBUS140
     }
 
-    public Airplane makePlane(plane_types desired_type) {
+    public static Airplane makePlane(plane_types desired_type) {
         if(desired_type == plane_types.BOEING20)
             return new BOEING20();
         else if(desired_type == plane_types.BOEING40)
