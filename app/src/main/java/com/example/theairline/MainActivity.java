@@ -2,56 +2,34 @@ package com.example.theairline;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.example.theairline.Airline.Airline;
-import com.example.theairline.Airline.AirlineImpl;
-import com.example.theairline.Airport.Airport;
-import com.example.theairline.Airport.AirportImpl;
-import com.example.theairline.Finances.Bank;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
-    private List<Airline> airlines;
-    private Bank theBank;
-    private List<Airport> airports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText name = (EditText)findViewById(R.id.nameText);
+        EditText airline_name = (EditText) findViewById(R.id.airlineName);
 
-        TextView Head = (TextView)findViewById(R.id.headText);
-        ProgressBar money = (ProgressBar)findViewById(R.id.Money);
-
-        money.setMax(100);
-        money.setProgress(100);
-
-        this.createGame("Alfred Air", "Alfred");
+        Button submit = (Button)findViewById(R.id.beginButton);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSetupDone();
+            }
+        });
     }
 
-    public void createGame(String user_airline, String user_name) {
-        this.airlines = new ArrayList<Airline>();
-        this.airports = new ArrayList<Airport>();
-        this.airlines.add(new AirlineImpl());
-        for(int i = 0; i < 3; i++) {
-            Airline to_add = new AirlineImpl();
-            this.airlines.add(to_add);
-            this.theBank.addAirline(to_add);
-        }
-        for(int i = 0; i < 10; i++) {
-            this.airports.add(new AirportImpl());
-        }
-    }
-
-    public void performTurn() {
-        //more code to come
+    public void openSetupDone() {
+        Intent intent = new Intent(this, SetupDone.class);
+        startActivity(intent);
     }
 
 }

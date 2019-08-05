@@ -38,5 +38,14 @@ public class Bank {
         this.airlines.put(key, bal);
     }
 
+    public void add(Airline key, double amt) {
+        double bal = this.airlines.get(key);
+        bal += amt;
+        this.airlines.remove(key);
+        this.airlines.put(key, bal);
+    }
 
+    public double getBalance(Airline key) {
+        return this.airlines.get(key);
+    }
 }
