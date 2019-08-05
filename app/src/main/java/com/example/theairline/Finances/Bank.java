@@ -31,18 +31,11 @@ public class Bank {
         this.airlines.remove(the_air);
     }
 
-    public void charge(Airline key, double amt) {
-        double bal = this.airlines.get(key);
-        bal -= amt;
-        this.airlines.remove(key);
-        this.airlines.put(key, bal);
-    }
-
-    public void add(Airline key, double amt) {
-        double bal = this.airlines.get(key);
-        bal += amt;
-        this.airlines.remove(key);
-        this.airlines.put(key, bal);
+    public void processTransaction(Charge c) {
+        double bal = this.airlines.get(c.getAirline());
+        bal += c.getAmount();
+        this.airlines.remove(c.getAirline());
+        this.airlines.put(c.getAirline(), bal);
     }
 
     public double getBalance(Airline key) {

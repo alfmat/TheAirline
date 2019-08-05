@@ -5,4 +5,5 @@ public interface Airport {
     double getAirportRate();
     double getTraffic();
     double getDailyFee();
+    void issueFees();
 }

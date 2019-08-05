@@ -38,7 +38,9 @@ public class Game {
     }
 
     public void performTurn() {
-
+        for(int i = 0; i < this.airlines.size(); i++) {
+            this.airports.get(i).issueFees();
+        }
     }
 
     public boolean shouldContinue() {

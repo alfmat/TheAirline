@@ -11,13 +11,11 @@ public class AirlineImpl implements Airline {
     // fields
     private String name;
     private String ceo;
-    private int emp_count;
     private List<Airplane> airplanes;
 
     public AirlineImpl() {
         this.name = "New Airline";
         this.ceo = "Sam";
-        this.emp_count = 2000;
         this.airplanes = new ArrayList<Airplane>();
         for(int i = 0; i < 2; i++)
             this.airplanes.add(Factory.makePlane(Factory.plane_types.BOEING20));
@@ -29,10 +27,9 @@ public class AirlineImpl implements Airline {
         this.name = airline_name;
     }
 
-    public AirlineImpl(String name_air, String ce, double mon_count, int emp) {
+    public AirlineImpl(String name_air, String ce, double mon_count) {
         this.name = name_air;
         this.ceo = ce;
-        this.emp_count = emp;
     }
 
     public String getCeoName() {
@@ -45,10 +42,6 @@ public class AirlineImpl implements Airline {
 
     public double getNumberPlanes(){
         return this.airplanes.size();
-    }
-
-    public int getEmpCount() {
-        return this.emp_count;
     }
 
     public void setCeo(String n) {

@@ -3,6 +3,8 @@ package com.example.theairline.Airport;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.theairline.Airline.*;
+import com.example.theairline.Finances.Bank;
+import com.example.theairline.Finances.Charge;
 
 public class AirportImpl implements Airport {
 
@@ -30,6 +32,12 @@ public class AirportImpl implements Airport {
         this.transaction_rate = t_r;
         this.daily_fee = d_f;
         this.air_lines = air;
+    }
+
+    public void issueFees() {
+        for(int i = 0; i < this.air_lines.size(); i++) {
+            Bank.getInstance().processTransaction(new Charge(this.air_lines.get(i), this.daily_fee));
+        }
     }
 
     public String getName() {
