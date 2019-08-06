@@ -10,6 +10,7 @@ public class AIRBUS100 extends AirplaneImpl implements Airplane {
         this.burn_rate = 0.1;
         this.pass_capacity = 40;
         this.type = Factory.plane_types.AIRBUS100;
+        this.cost = 5000;
     }
 
     public Factory.plane_types getType() {

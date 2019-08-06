@@ -11,6 +11,7 @@ public class AirplaneImpl implements Airplane {
     private double tank_capacity;
     private double mileage;
     private boolean needs_service;
+    protected int cost;
 
     public AirplaneImpl() {
         this.name = "Boeing";
@@ -22,6 +23,7 @@ public class AirplaneImpl implements Airplane {
         this.health = 100;
         this.mileage = 0;
         this.needs_service = false;
+        this.cost = 100;
     }
 
     public AirplaneImpl(String n, int cap, double b_r) {
@@ -55,6 +57,9 @@ public class AirplaneImpl implements Airplane {
     public boolean getServiceStatus(){
         return this.needs_service;
     }
+    public int getCost() {
+        return this.cost;
+    }
 
     public void setFuel(double f) {
         this.fuel = f;
@@ -70,7 +75,7 @@ public class AirplaneImpl implements Airplane {
 
     public void fly(double dist) {
         if(this.fuel < this.burn_rate * dist || this.health < 0) {
-            throw new RuntimeException("Plane Has Crashed");
+            throw new RuntimeException();
         }
         this.fuel = this.fuel - this.burn_rate * dist;
         this.health -= dist * 0.02;

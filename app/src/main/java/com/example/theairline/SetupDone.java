@@ -14,7 +14,7 @@ public class SetupDone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_done);
 
-        this.game = Game.getInstance();
+        this.game = Game.getInstance(1);
 
         while(this.game.shouldContinue()) {
             // perform some action

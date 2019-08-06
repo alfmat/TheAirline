@@ -5,8 +5,8 @@ public class Factory {
     private Factory() {
     }
 
-    public static Factory getInstance() {
-        if(the_factory == null)
+    public static Factory getInstance(int code) {
+        if(the_factory == null || code == 1)
             the_factory = new Factory();
         return the_factory;
     }

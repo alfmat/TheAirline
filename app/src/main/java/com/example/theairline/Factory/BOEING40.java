@@ -10,6 +10,7 @@ public class BOEING40 extends AirplaneImpl implements Airplane{
         this.burn_rate = 0.1;
         this.pass_capacity = 40;
         this.type = Factory.plane_types.BOEING40;
+        this.cost = 3500;
     }
 
     public Factory.plane_types getType() {

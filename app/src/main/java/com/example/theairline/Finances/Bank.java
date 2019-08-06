@@ -13,8 +13,8 @@ public class Bank {
     private Map<Airline,Double> airlines;
 
 
-    public static Bank getInstance() {
-        if(ourInstance == null)
+    public static Bank getInstance(int code) {
+        if(ourInstance == null || code == 1)
             ourInstance = new Bank();
         return ourInstance;
     }
@@ -38,6 +38,13 @@ public class Bank {
         this.airlines.put(c.getAirline(), bal);
     }
 
+    public boolean canDoTransaction(Charge c) {
+        double bal = this.airlines.get(c.getAirline());
+        bal += c.getAmount();
+        if (bal > 0)
+            return true;
+        return false;
+    }
     public double getBalance(Airline key) {
         return this.airlines.get(key);
     }

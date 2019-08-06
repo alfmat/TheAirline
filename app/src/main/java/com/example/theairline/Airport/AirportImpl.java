@@ -3,6 +3,7 @@ package com.example.theairline.Airport;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.theairline.Airline.*;
+import com.example.theairline.Factory.Airplane;
 import com.example.theairline.Finances.Bank;
 import com.example.theairline.Finances.Charge;
 
@@ -13,6 +14,7 @@ public class AirportImpl implements Airport {
     private double daily_fee;
     private int traffic;
     private List<Airline> air_lines;
+    private List<Airplane> airplanes;
 
     public AirportImpl() {
         this.name = "Milwaukee Regional Airport";
@@ -20,6 +22,7 @@ public class AirportImpl implements Airport {
         this.daily_fee = 30;
         this.traffic = 3000;
         this.air_lines = new ArrayList<Airline>();
+        this.airplanes = new ArrayList<Airplane>();
     }
 
     public AirportImpl(String n) {
@@ -36,7 +39,7 @@ public class AirportImpl implements Airport {
 
     public void issueFees() {
         for(int i = 0; i < this.air_lines.size(); i++) {
-            Bank.getInstance().processTransaction(new Charge(this.air_lines.get(i), this.daily_fee));
+            Bank.getInstance(0).processTransaction(new Charge(this.air_lines.get(i), this.daily_fee));
         }
     }
 
@@ -54,6 +57,14 @@ public class AirportImpl implements Airport {
 
     public double getDailyFee(){
         return this.daily_fee;
+    }
+
+    public void addAirline(Airline a) {
+        this.air_lines.add(a);
+    }
+
+    public void addAirplane(Airplane a) {
+        this.airplanes.add(a);
     }
 
 }

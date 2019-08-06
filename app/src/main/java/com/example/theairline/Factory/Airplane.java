@@ -12,4 +12,5 @@ public interface Airplane {
     boolean getServiceStatus();
     void performService(Service obj);
     void fly(double dist);
+    int getCost();
 }

@@ -2,6 +2,7 @@ package com.example.theairline.Airline;
 
 import com.example.theairline.Factory.Airplane;
 import com.example.theairline.Factory.Factory;
+import com.example.theairline.Game.FlightPlan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +33,24 @@ public class AirlineImpl implements Airline {
         this.ceo = ce;
     }
 
+    public void conductFlight(Airplane k, FlightPlan f) {
+        try {
+            k.fly(f.getDistance());
+        } catch (RuntimeException e) {
+            System.out.println("Plane has crashed");
+        }
+    }
+
     public String getCeoName() {
         return this.ceo;
     }
 
     public String getName(){
         return this.name;
+    }
+
+    public Airplane getPlane(int i) {
+        return this.airplanes.get(i);
     }
 
     public double getNumberPlanes(){
