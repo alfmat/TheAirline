@@ -38,6 +38,8 @@ public class Bank {
         this.airlines.put(c.getAirline(), bal);
     }
 
+
+
     public boolean canDoTransaction(Charge c) {
         double bal = this.airlines.get(c.getAirline());
         bal += c.getAmount();

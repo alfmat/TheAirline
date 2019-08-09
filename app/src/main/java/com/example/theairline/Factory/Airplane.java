@@ -13,4 +13,5 @@ public interface Airplane {
     void performService(Service obj);
     void fly(double dist);
     int getCost();
+    void setFuel(double f);
 }

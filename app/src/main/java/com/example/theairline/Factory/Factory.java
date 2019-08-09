@@ -1,5 +1,7 @@
 package com.example.theairline.Factory;
 
+import com.example.theairline.Airline.Airline;
+
 public class Factory {
     private static Factory the_factory;
     private Factory() {
@@ -17,6 +19,10 @@ public class Factory {
 
     public void servicePlane(Airplane plane) {
         plane.performService(new Service());
+    }
+
+    public void refuelPlane(Airplane plane, double f) {
+        plane.setFuel(f);
     }
 
     public enum plane_types {

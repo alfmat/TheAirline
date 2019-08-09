@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.theairline.Game.UserDetails;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,13 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText name = (EditText)findViewById(R.id.nameText);
-        EditText airline_name = (EditText) findViewById(R.id.airlineName);
+        final EditText name = (EditText)findViewById(R.id.nameText);
+        final EditText airline_name = (EditText) findViewById(R.id.airlineName);
 
         Button submit = (Button)findViewById(R.id.beginButton);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                UserDetails.getInstance(name.getText().toString(),airline_name.getText().toString(),1);
                 openSetupDone();
             }
         });
